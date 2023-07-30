@@ -2,12 +2,14 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
+import useResize from "@/hooks/useResize";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  useResize();
   return (
     <>
       <Header />

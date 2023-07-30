@@ -1,11 +1,14 @@
-import ModalHiraganaGuide from "@/components/ModalHiraganaGuide";
-import ModalKatakanaGuide from "@/components/ModalKatakanaGuide";
 import Layout from "@/containers/Layout";
+import { hGuideModalState } from "@/recoil/atoms";
+import { useSetRecoilState } from "recoil";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
 export default function Home() {
   const router = useRouter();
+
+  const setHGuideOpen = useSetRecoilState(hGuideModalState);
+  const setKGuideOpen = useSetRecoilState(hGuideModalState);
 
   return (
     <Layout>
@@ -41,8 +44,29 @@ export default function Home() {
           <span>KANJI</span>
         </Subject>
 
-        <ModalHiraganaGuide />
-        <ModalKatakanaGuide />
+        <Subject
+          onClick={() => {
+            setHGuideOpen((prev) => !prev);
+          }}
+        >
+          <img
+            src="/images/common/banner-all-hiragana.png"
+            alt="all-hiragana"
+          />
+          <span>H-Guide</span>
+        </Subject>
+
+        <Subject
+          onClick={() => {
+            setKGuideOpen((prev) => !prev);
+          }}
+        >
+          <img
+            src="/images/common/banner-all-katakana.png"
+            alt="all-katakana"
+          />
+          <span>K-Guide</span>
+        </Subject>
       </SubjectGrid>
     </Layout>
   );

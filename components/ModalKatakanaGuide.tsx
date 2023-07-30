@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Button, Modal, Box, Typography } from "@mui/material";
 import { Subject } from "@/containers/Home";
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
+import { kGuideModalState } from "@/recoil/atoms";
 
 export default function ModalKatakanaGuide() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useRecoilState(kGuideModalState);
 
   const handleOpen = () => {
     setOpen(true);
@@ -15,37 +17,31 @@ export default function ModalKatakanaGuide() {
   };
 
   return (
-    <div>
-      <Subject onClick={handleOpen}>
-        <img src="/images/common/banner-all-katakana.png" alt="all-katakana" />
-        <span>K-Guide</span>
-      </Subject>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+    <Modal
+      open={open}
+      onClose={handleClose}
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+    >
+      <Box
+        sx={{
+          position: "relative", // Add relative positioning to the Box
+          bgcolor: "#ffe3e3",
+          boxShadow: 24,
+          borderRadius: "10px",
+          maxHeight: "80vh", // Customize the height of the modal box
+          width: "fit-content", // Customize the width of the modal box
+        }}
       >
-        <Box
-          sx={{
-            position: "relative", // Add relative positioning to the Box
-            bgcolor: "#ffe3e3",
-            boxShadow: 24,
-            borderRadius: "10px",
-            maxHeight: "80vh", // Customize the height of the modal box
-            width: "fit-content", // Customize the width of the modal box
-          }}
-        >
-          <CloseButton onClick={handleClose}>X</CloseButton>{" "}
-          <Title>All Katakana Stroke Order</Title>
-          <Banner>
-            <img
-              src="/images/common/banner-all-katakana.png"
-              alt="all-katakana"
-            />
-          </Banner>
-        </Box>
-      </Modal>
-    </div>
+        <CloseButton onClick={handleClose}>X</CloseButton>{" "}
+        <Title>All Katakana Stroke Order</Title>
+        <Banner>
+          <img
+            src="/images/common/banner-all-katakana.png"
+            alt="all-katakana"
+          />
+        </Banner>
+      </Box>
+    </Modal>
   );
 }
 
