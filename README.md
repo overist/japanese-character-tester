@@ -2,6 +2,8 @@
 
 Random Japanese Character Tester
 
+link: [https://japanese.over.ist/](https://japanese.over.ist/)
+
 ## Project coverage
 
 - Hiragana
