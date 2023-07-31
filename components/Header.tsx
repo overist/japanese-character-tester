@@ -15,73 +15,90 @@ export default function Header() {
   const setKGuideModalOpen = useSetRecoilState(kGuideModalState);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  const renderMenuItems = () => {
+    return (
+      <>
+        <Item
+          className={Router.pathname === "/" ? "active" : ""}
+          onClick={() => {
+            Router.push("/");
+          }}
+        >
+          Home
+        </Item>
+        <Item
+          className={Router.pathname === "/hiragana" ? "active" : ""}
+          onClick={() => {
+            Router.push("/hiragana");
+          }}
+        >
+          Hiragana
+        </Item>
+        <Item
+          className={Router.pathname === "/katakana" ? "active" : ""}
+          onClick={() => {
+            Router.push("/katakana");
+          }}
+        >
+          Katakana
+        </Item>
+        <Item
+          className={Router.pathname === "/kanji" ? "active" : ""}
+          onClick={() => {
+            Router.push("/kanji");
+          }}
+        >
+          Kanji
+        </Item>
+        <Item onClick={() => setHGuideModalOpen(true)}>H-Guide</Item>
+        <Item onClick={() => setKGuideModalOpen(true)}>K-Guide</Item>
+      </>
+    );
+  };
+
   return (
     <>
-      <Frame>
-        <Wrap
-          className={(isMobile ? "mobile" : "") + (isMenuOpen ? " open" : "")}
-        >
-          <Item
-            className={Router.pathname === "/" ? "active" : ""}
-            onClick={() => {
-              Router.push("/");
-            }}
-          >
-            Home
-          </Item>
-          <Item
-            className={Router.pathname === "/hiragana" ? "active" : ""}
-            onClick={() => {
-              Router.push("/hiragana");
-            }}
-          >
-            Hiragana
-          </Item>
-          <Item
-            className={Router.pathname === "/katakana" ? "active" : ""}
-            onClick={() => {
-              Router.push("/katakana");
-            }}
-          >
-            Katakana
-          </Item>
-          <Item
-            className={Router.pathname === "/kanji" ? "active" : ""}
-            onClick={() => {
-              Router.push("/kanji");
-            }}
-          >
-            Kanji
-          </Item>
-          <Item onClick={() => setHGuideModalOpen(true)}>H-Guide</Item>
-          <Item onClick={() => setKGuideModalOpen(true)}>K-Guide</Item>
+      {/* PC START */}
+      {!isMobile && (
+        <Frame>
+          <Wrap>{renderMenuItems()}</Wrap>
+        </Frame>
+      )}
+      {/* PC END */}
 
-          {/* ANCHOR Mobile Start */}
-          <MobileLogo
-            onClick={() => {
-              Router.push("/");
-            }}
-          />
-          <MobileTitle
-            onClick={() => {
-              Router.push("/");
-            }}
-          >
-            JA Character Tester
-          </MobileTitle>
-          <MobileMenuButton
-            isMenuOpen={isMenuOpen}
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen);
-            }}
-          >
-            <span />
-            <span />
-            <span />
-          </MobileMenuButton>
-          {/* ANCHOR Mobile End */}
-        </Wrap>
-      </Frame>
+      {/* Mobile START */}
+      {isMobile && (
+        <Frame>
+          <Wrap className={"mobile" + (isMenuOpen ? " open" : "")}>
+            <MobileLogo
+              onClick={() => {
+                Router.push("/");
+              }}
+            />
+
+            <MobileTitle
+              onClick={() => {
+                Router.push("/");
+              }}
+            >
+              JA Character Tester
+            </MobileTitle>
+
+            <MobileMenuButton
+              isMenuOpen={isMenuOpen}
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
+            >
+              <span />
+              <span />
+              <span />
+            </MobileMenuButton>
+
+            {renderMenuItems()}
+          </Wrap>
+        </Frame>
+      )}
     </>
   );
 }
@@ -103,7 +120,6 @@ const Wrap = styled.ul`
   align-items: center;
   margin: 0px;
 
-  /* Mobile이 아닐 때는 button list hedaer, Mobile에서는 세로 풀사이즈 ul로 동작 */
   &.mobile {
     position: relative;
     flex-direction: column;

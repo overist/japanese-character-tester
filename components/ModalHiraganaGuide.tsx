@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Box, Typography } from "@mui/material";
-import { Subject } from "@/containers/Home";
+import { Subject } from "@/containers/HomeContainer";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { hGuideModalState } from "@/recoil/atoms";
