@@ -354,169 +354,169 @@ export const katakanas = [
     character: "ポ",
     pronunciation: "po",
   },
-  {
-    id: 72,
-    character: "キャ",
-    pronunciation: "kya",
-  },
-  {
-    id: 73,
-    character: "キュ",
-    pronunciation: "kyu",
-  },
-  {
-    id: 74,
-    character: "キョ",
-    pronunciation: "kyo",
-  },
-  {
-    id: 75,
-    character: "シャ",
-    pronunciation: "sha",
-  },
-  {
-    id: 76,
-    character: "シュ",
-    pronunciation: "shu",
-  },
-  {
-    id: 77,
-    character: "ショ",
-    pronunciation: "sho",
-  },
-  {
-    id: 78,
-    character: "チャ",
-    pronunciation: "cha",
-  },
-  {
-    id: 79,
-    character: "チュ",
-    pronunciation: "chu",
-  },
-  {
-    id: 80,
-    character: "チョ",
-    pronunciation: "cho",
-  },
-  {
-    id: 81,
-    character: "ニャ",
-    pronunciation: "nya",
-  },
-  {
-    id: 82,
-    character: "ニュ",
-    pronunciation: "nyu",
-  },
-  {
-    id: 83,
-    character: "ニョ",
-    pronunciation: "nyo",
-  },
-  {
-    id: 84,
-    character: "ヒャ",
-    pronunciation: "hya",
-  },
-  {
-    id: 85,
-    character: "ヒュ",
-    pronunciation: "hyu",
-  },
-  {
-    id: 86,
-    character: "ヒョ",
-    pronunciation: "hyo",
-  },
-  {
-    id: 87,
-    character: "ミャ",
-    pronunciation: "mya",
-  },
-  {
-    id: 88,
-    character: "ミュ",
-    pronunciation: "myu",
-  },
-  {
-    id: 89,
-    character: "ミョ",
-    pronunciation: "myo",
-  },
-  {
-    id: 90,
-    character: "リャ",
-    pronunciation: "rya",
-  },
-  {
-    id: 91,
-    character: "リュ",
-    pronunciation: "ryu",
-  },
-  {
-    id: 92,
-    character: "リョ",
-    pronunciation: "ryo",
-  },
-  {
-    id: 93,
-    character: "ギャ",
-    pronunciation: "gya",
-  },
-  {
-    id: 94,
-    character: "ギュ",
-    pronunciation: "gyu",
-  },
-  {
-    id: 95,
-    character: "ギョ",
-    pronunciation: "gyo",
-  },
-  {
-    id: 96,
-    character: "ジャ",
-    pronunciation: "ja",
-  },
-  {
-    id: 97,
-    character: "ジュ",
-    pronunciation: "ju",
-  },
-  {
-    id: 98,
-    character: "ジョ",
-    pronunciation: "jo",
-  },
-  {
-    id: 99,
-    character: "ビャ",
-    pronunciation: "bya",
-  },
-  {
-    id: 100,
-    character: "ビュ",
-    pronunciation: "byu",
-  },
-  {
-    id: 101,
-    character: "ビョ",
-    pronunciation: "byo",
-  },
-  {
-    id: 102,
-    character: "ピャ",
-    pronunciation: "pya",
-  },
-  {
-    id: 103,
-    character: "ピュ",
-    pronunciation: "pyu",
-  },
-  {
-    id: 104,
-    character: "ピョ",
-    pronunciation: "pyo",
-  },
+  // {
+  //   id: 72,
+  //   character: "キャ",
+  //   pronunciation: "kya",
+  // },
+  // {
+  //   id: 73,
+  //   character: "キュ",
+  //   pronunciation: "kyu",
+  // },
+  // {
+  //   id: 74,
+  //   character: "キョ",
+  //   pronunciation: "kyo",
+  // },
+  // {
+  //   id: 75,
+  //   character: "シャ",
+  //   pronunciation: "sha",
+  // },
+  // {
+  //   id: 76,
+  //   character: "シュ",
+  //   pronunciation: "shu",
+  // },
+  // {
+  //   id: 77,
+  //   character: "ショ",
+  //   pronunciation: "sho",
+  // },
+  // {
+  //   id: 78,
+  //   character: "チャ",
+  //   pronunciation: "cha",
+  // },
+  // {
+  //   id: 79,
+  //   character: "チュ",
+  //   pronunciation: "chu",
+  // },
+  // {
+  //   id: 80,
+  //   character: "チョ",
+  //   pronunciation: "cho",
+  // },
+  // {
+  //   id: 81,
+  //   character: "ニャ",
+  //   pronunciation: "nya",
+  // },
+  // {
+  //   id: 82,
+  //   character: "ニュ",
+  //   pronunciation: "nyu",
+  // },
+  // {
+  //   id: 83,
+  //   character: "ニョ",
+  //   pronunciation: "nyo",
+  // },
+  // {
+  //   id: 84,
+  //   character: "ヒャ",
+  //   pronunciation: "hya",
+  // },
+  // {
+  //   id: 85,
+  //   character: "ヒュ",
+  //   pronunciation: "hyu",
+  // },
+  // {
+  //   id: 86,
+  //   character: "ヒョ",
+  //   pronunciation: "hyo",
+  // },
+  // {
+  //   id: 87,
+  //   character: "ミャ",
+  //   pronunciation: "mya",
+  // },
+  // {
+  //   id: 88,
+  //   character: "ミュ",
+  //   pronunciation: "myu",
+  // },
+  // {
+  //   id: 89,
+  //   character: "ミョ",
+  //   pronunciation: "myo",
+  // },
+  // {
+  //   id: 90,
+  //   character: "リャ",
+  //   pronunciation: "rya",
+  // },
+  // {
+  //   id: 91,
+  //   character: "リュ",
+  //   pronunciation: "ryu",
+  // },
+  // {
+  //   id: 92,
+  //   character: "リョ",
+  //   pronunciation: "ryo",
+  // },
+  // {
+  //   id: 93,
+  //   character: "ギャ",
+  //   pronunciation: "gya",
+  // },
+  // {
+  //   id: 94,
+  //   character: "ギュ",
+  //   pronunciation: "gyu",
+  // },
+  // {
+  //   id: 95,
+  //   character: "ギョ",
+  //   pronunciation: "gyo",
+  // },
+  // {
+  //   id: 96,
+  //   character: "ジャ",
+  //   pronunciation: "ja",
+  // },
+  // {
+  //   id: 97,
+  //   character: "ジュ",
+  //   pronunciation: "ju",
+  // },
+  // {
+  //   id: 98,
+  //   character: "ジョ",
+  //   pronunciation: "jo",
+  // },
+  // {
+  //   id: 99,
+  //   character: "ビャ",
+  //   pronunciation: "bya",
+  // },
+  // {
+  //   id: 100,
+  //   character: "ビュ",
+  //   pronunciation: "byu",
+  // },
+  // {
+  //   id: 101,
+  //   character: "ビョ",
+  //   pronunciation: "byo",
+  // },
+  // {
+  //   id: 102,
+  //   character: "ピャ",
+  //   pronunciation: "pya",
+  // },
+  // {
+  //   id: 103,
+  //   character: "ピュ",
+  //   pronunciation: "pyu",
+  // },
+  // {
+  //   id: 104,
+  //   character: "ピョ",
+  //   pronunciation: "pyo",
+  // },
 ];
