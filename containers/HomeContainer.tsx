@@ -1,5 +1,5 @@
 import Layout from "@/containers/Layout";
-import { hGuideModalState } from "@/recoil/atoms";
+import { hGuideModalState, kGuideModalState } from "@/recoil/atoms";
 import { useSetRecoilState } from "recoil";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter();
 
   const setHGuideOpen = useSetRecoilState(hGuideModalState);
-  const setKGuideOpen = useSetRecoilState(hGuideModalState);
+  const setKGuideOpen = useSetRecoilState(kGuideModalState);
 
   return (
     <Layout>
