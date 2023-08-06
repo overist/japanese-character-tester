@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { hiraganas } from "@/datas/hiraganas";
+import { useRouter } from "next/router";
 
 export default function Hiragana() {
   // ** states and conditions
@@ -16,6 +17,7 @@ export default function Hiragana() {
   const [isEnded, setIsEnded] = React.useState(false);
   const [inputValue, setInputValue] = React.useState("");
   const [answer, setAnswer] = React.useState("");
+  const router = useRouter();
 
   // ** effects
   useEffect(() => {
@@ -98,10 +100,19 @@ export default function Hiragana() {
   };
   const renderReadyPage = () => {
     return (
-      <ReadyWrap>
-        <button onClick={setModeFromCharacter}>From character</button>
-        <button onClick={setModeFromPronunciation}>From pronunciation</button>
-      </ReadyWrap>
+      <>
+        <ReadyWrap>
+          <button onClick={setModeFromCharacter}>From character</button>
+          <button onClick={setModeFromPronunciation}>From pronunciation</button>
+        </ReadyWrap>
+        <GoHomButton
+          onClick={() => {
+            router.push("/");
+          }}
+        >
+          Go Home
+        </GoHomButton>
+      </>
     );
   };
   const renderFromCharacter = () => {
@@ -184,6 +195,9 @@ const Title = styled.h1`
 const ReadyWrap = styled.div`
   display: flex;
   padding-top: 20px;
+  max-width: 340px;
+  width: 100%;
+  justify-content: space-between;
 
   button {
     margin: 0 10px;
@@ -280,4 +294,16 @@ const TestWrap = styled.div`
 
 const HintWrap = styled.div`
   font-size: 16px;
+`;
+
+const GoHomButton = styled.button`
+  max-width: 320px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #dee2e6;
+  color: #fff;
+  margin: 20px 0px;
+  cursor: pointer;
 `;
