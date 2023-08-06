@@ -1,5 +1,5 @@
 import { katakanaTestState } from "@/recoil/atoms";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
@@ -49,11 +49,11 @@ export default function Katakana() {
       quizs: katakanas.map((v) => v).sort(() => Math.random() - 0.5),
     });
   };
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       handleSubmit();
     }
