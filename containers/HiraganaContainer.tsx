@@ -15,22 +15,19 @@ export default function Hiragana() {
   const [wrongCount, setWrongCount] = React.useState(0);
   const [isEnded, setIsEnded] = React.useState(false);
   const [inputValue, setInputValue] = React.useState("");
-  const [quiz, setQuiz] = React.useState("");
   const [answer, setAnswer] = React.useState("");
 
   // ** effects
   useEffect(() => {
     setWrongCount(0);
     console.log(quizs[stage - 1]);
-    if (inputRef.current) inputRef.current?.focus();
+    if (inputRef.current) inputRef.current.focus();
     if (stage > hiraganas.length) {
       setIsEnded(true);
     }
     if (mode === 0 && stage > 0) {
-      setQuiz(quizs[stage - 1].character);
       setAnswer(quizs[stage - 1].pronunciation);
     } else if (mode === 1 && stage > 0) {
-      setQuiz(quizs[stage - 1].pronunciation);
       setAnswer(quizs[stage - 1].character);
     }
   }, [stage]);
@@ -52,12 +49,19 @@ export default function Hiragana() {
       quizs: hiraganas.map((v) => v).sort(() => Math.random() - 0.5),
     });
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+  const handleSubmit = () => {
     const inputData = inputRef.current?.value;
     setInputValue("");
 
-    console.log("nbow", inputData, "a", answer);
     if (inputData === answer) {
       setHiraganaTest({
         ...hiraganaTest,
@@ -82,6 +86,7 @@ export default function Hiragana() {
           mode: {mode === 0 ? "from character" : "from pronunciation"}
         </span>
         <button
+          className="reset"
           onClick={() =>
             setHiraganaTest({ stage: 0, mode: 0, wrongs: [], quizs: [] })
           }
@@ -104,18 +109,23 @@ export default function Hiragana() {
       <TestWrap>
         {renderTestStatus()}
         <span className="quiz">{quizs[stage - 1].character}</span>
-        <form onSubmit={handleSubmit}>
+        <div>
           <input
             type="text"
             ref={inputRef}
             value={inputValue}
-            onChange={(e) => {
-              e.preventDefault();
-              setInputValue(e.target.value);
-            }}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyPress}
           />
-          <button type="submit">Submit</button>
-        </form>
+          <button
+            onClick={(e) => {
+              e.preventDefault;
+              handleSubmit();
+            }}
+          >
+            Submit
+          </button>
+        </div>
       </TestWrap>
     );
   };
@@ -124,18 +134,23 @@ export default function Hiragana() {
       <TestWrap>
         {renderTestStatus()}
         <span className="quiz">{quizs[stage - 1].pronunciation}</span>
-        <form onSubmit={handleSubmit}>
+        <div>
           <input
             type="text"
             ref={inputRef}
             value={inputValue}
-            onChange={(e) => {
-              e.preventDefault();
-              setInputValue(e.target.value);
-            }}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyPress}
           />
-          <button type="submit">Submit</button>
-        </form>
+          <button
+            onClick={(e) => {
+              e.preventDefault;
+              handleSubmit();
+            }}
+          >
+            Submit
+          </button>
+        </div>
       </TestWrap>
     );
   };
@@ -186,9 +201,14 @@ const TestStatusWrap = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
 
-  button {
+  @media screen and (max-width: 767px) {
+    padding: 0;
+  }
+
+  button.reset {
     width: 90px;
     padding: 10px 20px;
     background-color: #dee2e6;
@@ -202,6 +222,10 @@ const TestStatusWrap = styled.div`
   span {
     font-size: 16px;
     font-weight: bold;
+
+    @media screen and (max-width: 767px) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -214,6 +238,13 @@ const TestWrap = styled.div`
   span.quiz {
     font-size: 100px;
   }
+  @media screen and (max-width: 767px) {
+    padding: 10px 0;
+    span.quiz {
+      padding-top: 10px;
+      font-size: 40px;
+    }
+  }
 
   img {
     width: 200px;
@@ -221,7 +252,7 @@ const TestWrap = styled.div`
     object-fit: cover;
   }
 
-  form {
+  div {
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -231,6 +262,7 @@ const TestWrap = styled.div`
       border: 1px solid #dee2e6;
       border-radius: 5px;
       margin-right: 10px;
+      max-width: 200px;
     }
 
     button {
