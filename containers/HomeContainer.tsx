@@ -78,22 +78,35 @@ const TitleImageWrap = styled.div`
   img {
     width: 100%;
   }
+
+  @media screen and (max-width: 767px) {
+    max-width: 180px;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 40px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const SubjectGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
+
+  @media screen and (max-width: 767px) {
+    grid-gap: 10px;
+  }
 `;
 
 export const Subject = styled.div`
-  width: 100px;
+  max-width: 100px;
+  width: 100%;
   height: 100%;
   cursor: pointer;
   img {
@@ -105,5 +118,9 @@ export const Subject = styled.div`
     text-align: center;
     font-size: 14px;
     font-weight: bold;
+  }
+
+  @media screen and (max-width: 767px) {
+    max-width: 80px;
   }
 `;

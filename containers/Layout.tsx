@@ -28,6 +28,10 @@ const Frame = styled.main`
   width: 100%;
   padding-top: 60px;
   min-height: calc(100vh - 60px);
+
+  @media screen and (max-width: 767px) {
+    padding-top: 0;
+  }
 `;
 
 const Wrap = styled.div`
